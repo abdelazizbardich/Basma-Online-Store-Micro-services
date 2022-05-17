@@ -1,0 +1,8 @@
+services:
+  clientservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: client_service
+    ports:
+      - 4200:4200

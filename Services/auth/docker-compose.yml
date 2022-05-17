@@ -1,0 +1,8 @@
+services:
+  authservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth_service
+    ports:
+      - 3001:8080
