@@ -34,7 +34,6 @@ __L’utilisateur particulier peut__ :
 ```
 Utilisez Docker et Jenkins pour l'intégration continue , l’automatisation des tests, la compilation et le déploiement de l'API
 ```
-
 ### Plan du Test :
 
 - Vérifier l’inscription
