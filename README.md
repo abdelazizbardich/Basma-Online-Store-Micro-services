@@ -40,3 +40,4 @@ Utilisez Docker et Jenkins pour l'intégration continue , l’automatisation des
 - Vérifier l’authentification
 - Vérifier l’ajout des articles au panier
 - Vérifier la suppression et la mise à jour des produits au panier
+___
