@@ -72,3 +72,65 @@ services:
       - 3004:8080
     networks:
       - basma-network
+
+# Services Databases
+  apigetwaydatabase:
+    image: mysql:8.0.28
+    container_name: apigetway_database
+    ports:
+      - 3301:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: apigetway_database
+    volumes:
+      - ./backup/apigetway-database:/var/lib/mysql
+  authdatabase:
+    image: mysql:8.0.28
+    container_name: auth_database
+    ports:
+      - 3302:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: auth_database
+    volumes:
+      - ./backup/auth-database:/var/lib/mysql
+  ordersdatabase:
+    image: mysql:8.0.28
+    container_name: orders_database
+    ports:
+      - 3303:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: orders_database
+    volumes:
+      - ./backup/orders-database:/var/lib/mysql
+  productsdatabase:
+    image: mysql:8.0.28
+    container_name: products_database
+    ports:
+      - 3304:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: products_database
+    volumes:
+      - ./backup/products-database:/var/lib/mysql
+  usersdatabase:
+    image: mysql:8.0.28
+    container_name: usersdatabase
+    ports:
+      - 3305:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: usersdatabase
+    volumes:
+      - ./backup/users-database:/var/lib/mysql
