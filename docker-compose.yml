@@ -1,4 +1,4 @@
-version: "3.9"
+version: "2"
 
 # SERVICES CONTAINERS SHARED NETWORK
 networks:
@@ -8,6 +8,7 @@ networks:
 services:
 # API GATEWAY SERVICE
   apigetway:
+      image: basma_api_gateway:v1
       build:
         context: ./api-gateway
         dockerfile: Dockerfile
@@ -18,6 +19,7 @@ services:
       - basma-network
 # AUTHENTISATION SERVICE
   authservice:
+    image: basma_auth_service:v1
     build:
       context: ./auth-service
       dockerfile: Dockerfile
@@ -28,6 +30,7 @@ services:
       - basma-network
 # FRONT SERVICE
   frontservice:
+    image: basma_front_service:v1
     build:
       context: ./front-service
       dockerfile: Dockerfile
@@ -38,6 +41,7 @@ services:
       - basma-network
 # ORDERS SERVICE
   ordersservice:
+    image: basma_orders_service:v1
     build:
       context: ./orders-service
       dockerfile: Dockerfile
@@ -48,6 +52,7 @@ services:
       - basma-network
 # PRODUCTS SERVICE
   productsservice:
+    image: basma_products_service:v1
     build:
       context: ./products-service
       dockerfile: Dockerfile
@@ -58,6 +63,7 @@ services:
       - basma-network
 # USERS SERVICE
   userseservice:
+    image: basma_users_service:v1
     build:
       context: ./users-service
       dockerfile: Dockerfile
