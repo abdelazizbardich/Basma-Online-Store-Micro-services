@@ -1,0 +1,68 @@
+version: "3.9"
+
+# SERVICES CONTAINERS SHARED NETWORK
+networks:
+  basma-network:
+    driver: bridge
+
+services:
+# API GATEWAY SERVICE
+  apigetway:
+      build:
+        context: ./api-gateway
+        dockerfile: Dockerfile
+      container_name: api_getway
+      ports:
+        - 3000:8080
+      networks:
+      - basma-network
+# AUTHENTISATION SERVICE
+  authservice:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    container_name: auth_service
+    ports:
+      - 3001:8080
+    networks:
+      - basma-network
+# FRONT SERVICE
+  frontservice:
+    build:
+      context: ./front-service
+      dockerfile: Dockerfile
+    container_name: client_service
+    ports:
+      - 4200:80
+    networks:
+      - basma-network
+# ORDERS SERVICE
+  ordersservice:
+    build:
+      context: ./orders-service
+      dockerfile: Dockerfile
+    container_name: orders_service
+    ports:
+      - 3002:8080
+    networks:
+      - basma-network
+# PRODUCTS SERVICE
+  productsservice:
+    build:
+      context: ./products-service
+      dockerfile: Dockerfile
+    container_name: products_service
+    ports:
+      - 3003:8080
+    networks:
+      - basma-network
+# USERS SERVICE
+  userseservice:
+    build:
+      context: ./users-service
+      dockerfile: Dockerfile
+    container_name: users_service
+    ports:
+      - 3004:8080
+    networks:
+      - basma-network

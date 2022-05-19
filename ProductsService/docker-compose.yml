@@ -1,8 +1,0 @@
-services:
-  productsservice:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: products_service
-    ports:
-      - 3003:8080

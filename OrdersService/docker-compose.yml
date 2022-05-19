@@ -1,8 +1,0 @@
-services:
-  ordersservice:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: orders_service
-    ports:
-      - 3002:8080

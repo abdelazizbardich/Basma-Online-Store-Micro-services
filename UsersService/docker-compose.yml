@@ -1,8 +1,0 @@
-services:
-  userseservice:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: users_service
-    ports:
-      - 3004:8080
