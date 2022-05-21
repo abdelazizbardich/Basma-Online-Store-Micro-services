@@ -124,13 +124,13 @@ services:
       - ./backup/products-database:/var/lib/mysql
   usersdatabase:
     image: mysql:8.0.28
-    container_name: usersdatabase
+    container_name: users_database
     ports:
       - 3305:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: username
       MYSQL_PASSWORD: password
-      MYSQL_DATABASE: usersdatabase
+      MYSQL_DATABASE: users_database
     volumes:
       - ./backup/users-database:/var/lib/mysql
