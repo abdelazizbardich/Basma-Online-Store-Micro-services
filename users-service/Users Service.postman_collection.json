@@ -1,0 +1,775 @@
+{
+	"info": {
+		"_postman_id": "68d9e84e-6242-4d18-be24-6941929c6437",
+		"name": "Users Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15269671"
+	},
+	"item": [
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a user\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ABS_URL}}/1",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"role name\",\r\n    \"authorities\":\"*\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idRole\": 1,\r\n    \"name\":\"role name\",\r\n    \"authorities\":\"**\",\r\n    \"createdAt\":\"2022-05-21T16:42:38.879+00:01\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.true;\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idRole\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.collectionVariables.set(\"ABS_URL\",pm.collectionVariables.get(\"ABS_URL\")+\"/role\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ABS_URL}}/1",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\":\"street name\",\r\n    \"city\":\"city name\",\r\n    \"postalCode\":54326\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAddress\":1,\r\n    \"street\":\"new street\",\r\n    \"city\":\"new city\",\r\n    \"postalCode\":4345345\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.true;\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAddress\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.collectionVariables.set(\"ABS_URL\",pm.collectionVariables.get(\"ABS_URL\")+\"/address\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ABS_URL}}/1",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"abdelaziz\",\r\n    \"lastName\": \"bardich\",\r\n    \"phone\": \"+212603768705\",\r\n    \"email\": \"abdelazizbardisch@gmail.com\",\r\n    \"address\": {\r\n        \"idAddress\":1\r\n    },\r\n    \"role\": {\r\n        \"idRole\":1\r\n    },\r\n    \"username\": \"ambdelazizbardich\",\r\n    \"password\": \"pass1234\"\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": 1,\r\n    \"firstName\": \"abdelaziz\",\r\n    \"lastName\": \"bardich\",\r\n    \"phone\": \"+212603768705\",\r\n    \"email\": \"abdelazizbardich@gmail.com\",\r\n    \"address\": {\r\n        \"idAddress\":1\r\n    },\r\n    \"role\": {\r\n        \"idRole\":1\r\n    },\r\n    \"username\": \"abdelazizbardich\",\r\n    \"password\": \"pass1234\",\r\n    \"createdAt\": null\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Shold return a list of users\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.json()).to.be.true;\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{ABS_URL}}/",
+							"host": [
+								"{{ABS_URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.collectionVariables.set(\"ABS_URL\",pm.collectionVariables.get(\"ABS_URL\"))"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.collectionVariables.set(\"ABS_URL\",pm.globals.get(\"ABS_URL\")+\"/user\")"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ABS_URL",
+			"value": ""
+		}
+	]
+}
