@@ -1,2 +1,4 @@
-package com.basmaonlinestore.ordersserver.repositories;public class OrderProductRepository {
+package com.basmaonlinestore.ordersserver.repositories;
+
+public interface OrderProductRepository {
 }
