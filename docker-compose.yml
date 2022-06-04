@@ -8,15 +8,22 @@ networks:
 services:
 # API GATEWAY SERVICE
   apigetway:
-      image: basma_api_gateway:v1
-      build:
-        context: ./api-gateway
-        dockerfile: Dockerfile
-      container_name: api_getway
-      ports:
-        - 3000:8080
-      networks:
+    image: basma_api_gateway:v1
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: api_getway
+    ports:
+      - 3000:8080
+    networks:
       - basma-network
+    depends_on:
+      - apigetwaydatabase
+      - authservice
+      - ordersservice
+      - productsservice
+      - userseservice
+      
 # AUTHENTISATION SERVICE
   authservice:
     image: basma_auth_service:v1
@@ -28,6 +35,8 @@ services:
       - 3001:8080
     networks:
       - basma-network
+    depends_on:
+      - authdatabase
 # FRONT SERVICE
   frontservice:
     image: basma_front_service:v1
@@ -39,6 +48,8 @@ services:
       - 4200:80
     networks:
       - basma-network
+    depends_on:
+      - apigetway
 # ORDERS SERVICE
   ordersservice:
     image: basma_orders_service:v1
@@ -50,6 +61,8 @@ services:
       - 3002:8080
     networks:
       - basma-network
+    depends_on:
+      - ordersdatabase
 # PRODUCTS SERVICE
   productsservice:
     image: basma_products_service:v1
@@ -61,6 +74,8 @@ services:
       - 3003:8080
     networks:
       - basma-network
+    depends_on:
+      - productsdatabase
 # USERS SERVICE
   userseservice:
     image: basma_users_service:v1
@@ -72,6 +87,8 @@ services:
       - 3004:8080
     networks:
       - basma-network
+    depends_on:
+      - usersdatabase
 
 # Services Databases
   apigetwaydatabase:
@@ -86,6 +103,8 @@ services:
       MYSQL_DATABASE: apigetway_database
     volumes:
       - ./backup/apigetway-database:/var/lib/mysql
+    networks:
+      - basma-network
   authdatabase:
     image: mysql:8.0.28
     container_name: auth_database
@@ -98,6 +117,8 @@ services:
       MYSQL_DATABASE: auth_database
     volumes:
       - ./backup/auth-database:/var/lib/mysql
+    networks:
+      - basma-network
   ordersdatabase:
     image: mysql:8.0.28
     container_name: orders_database
@@ -110,6 +131,8 @@ services:
       MYSQL_DATABASE: orders_database
     volumes:
       - ./backup/orders-database:/var/lib/mysql
+    networks:
+      - basma-network
   productsdatabase:
     image: mysql:8.0.28
     container_name: products_database
@@ -122,6 +145,8 @@ services:
       MYSQL_DATABASE: products_database
     volumes:
       - ./backup/products-database:/var/lib/mysql
+    networks:
+      - basma-network
   usersdatabase:
     image: mysql:8.0.28
     container_name: users_database
@@ -134,3 +159,5 @@ services:
       MYSQL_DATABASE: users_database
     volumes:
       - ./backup/users-database:/var/lib/mysql
+    networks:
+      - basma-network
