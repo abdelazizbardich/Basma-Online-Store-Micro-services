@@ -17,7 +17,7 @@ public class ProductService {
         this.productRepository=productRepository;
     }
 
-    public List<Products> getAllProducts(){
+    public List<Product> getAllProducts(){
         try {
             return productRepository.findAll();
         }catch (Exception e){
@@ -26,7 +26,7 @@ public class ProductService {
         }
     }
 
-    public Products getOneProduct(Long id){
+    public Product getOneProduct(Long id){
         try {
             return productRepository.findById(id).get();
         }catch (Exception e){
@@ -35,18 +35,18 @@ public class ProductService {
         }
     }
 
-    public Products addProduct( Products products){
+    public Product addProduct( Product product){
         try {
-            return productRepository.save(products);
+            return productRepository.save(product);
         }catch (Exception e){
             System.err.println(e);
             return null;
         }
     }
 
-    public Products updateProduct(Products products){
+    public Product updateProduct(Product product){
         try {
-            return productRepository.save(products);
+            return productRepository.save(product);
         }catch (Exception e){
             System.err.println(e);
             return null;

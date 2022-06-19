@@ -19,27 +19,27 @@ public class ProductController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Products>> getAllProducts(){
+    public ResponseEntity<List<Product>> getAllProducts(){
         return ResponseEntity.status(200).body(productService.getAllProducts());
     }
 
     @GetMapping("/{idProduct}")
-    public ResponseEntity<Products> getOneProduct(@PathVariable(name = "idProduct") Long id){
+    public ResponseEntity<Product> getOneProduct(@PathVariable(name = "idProduct") Long id){
         return ResponseEntity.status(200).body(productService.getOneProduct(id));
     }
 
     @PostMapping("")
-    public  ResponseEntity<Products> addProduct(@RequestBody Products products){
-        return ResponseEntity.status(200).body(ProductService.addProduct(products));
+    public  ResponseEntity<Product> addProduct(@RequestBody Product product){
+        return ResponseEntity.status(200).body(productService.addProduct(product));
     }
 
     @PutMapping("")
-    public  ResponseEntity<Products> updateProduct(@RequestBody Products products){
-        return ResponseEntity.status(200).body(ProductService.updateProduct(products));
+    public  ResponseEntity<Product> updateProduct(@RequestBody Product product){
+        return ResponseEntity.status(200).body(productService.updateProduct(product));
     }
 
     @DeleteMapping("")
-    public ResponseEntity deleteProduct(@RequestBody Long id){
-        return ResponseEntity.status(200).body(ProductService.deleteProduct(id));
+    public ResponseEntity deleteProduct(@RequestBody Product product){
+        return ResponseEntity.status(200).body(productService.deleteProduct(product.getIdProduct()));
     }
 }

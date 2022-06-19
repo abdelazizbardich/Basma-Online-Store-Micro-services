@@ -19,27 +19,27 @@ public class CategoryController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Categories>> getAllCategories(){
+    public ResponseEntity<List<Category>> getAllCategories(){
         return ResponseEntity.status(200).body(categoryService.getAllCategories());
     }
 
     @GetMapping("/{idCategory}")
-    public ResponseEntity<Categories> getOneCategory(@PathVariable(name = "idCategory") Long id){
+    public ResponseEntity<Category> getOneCategory(@PathVariable(name = "idCategory") Long id){
         return ResponseEntity.status(200).body(categoryService.getOneCategory(id));
     }
 
     @PostMapping("")
-    public  ResponseEntity<Categories> addCategory(@RequestBody Categories categories){
-        return ResponseEntity.status(200).body(categoryService.addCategory(categories));
+    public  ResponseEntity<Category> addCategory(@RequestBody Category category){
+        return ResponseEntity.status(200).body(categoryService.addCategory(category));
     }
 
     @PutMapping("")
-    public  ResponseEntity<Categories> updateCategory(@RequestBody Categories categories){
-        return ResponseEntity.status(200).body(categoryService.updateCategory(categories));
+    public  ResponseEntity<Category> updateCategory(@RequestBody Category category){
+        return ResponseEntity.status(200).body(categoryService.updateCategory(category));
     }
 
     @DeleteMapping("")
-    public ResponseEntity deleteCategory(@RequestBody Long id){
-        return ResponseEntity.status(200).body(categoryService.deleteCategory(id));
+    public ResponseEntity deleteCategory(@RequestBody Category category){
+        return ResponseEntity.status(200).body(categoryService.deleteCategory(category.getIdCategory()));
     }
 }

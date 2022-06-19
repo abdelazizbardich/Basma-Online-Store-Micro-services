@@ -7,88 +7,87 @@ networks:
 
 services:
 # API GATEWAY SERVICE
-  apigetway:
-    image: basma_api_gateway:v1
-    build:
-      context: ./api-gateway
-      dockerfile: Dockerfile
-    container_name: api_getway
-    ports:
-      - 3000:8080
-    networks:
-      - basma-network
-    depends_on:
-      - apigetwaydatabase
-      - authservice
-      - ordersservice
-      - productsservice
-      - userseservice
-      
-# AUTHENTISATION SERVICE
-  authservice:
-    image: basma_auth_service:v1
-    build:
-      context: ./auth-service
-      dockerfile: Dockerfile
-    container_name: auth_service
-    ports:
-      - 3001:8080
-    networks:
-      - basma-network
-    depends_on:
-      - authdatabase
-# FRONT SERVICE
-  frontservice:
-    image: basma_front_service:v1
-    build:
-      context: ./front-service
-      dockerfile: Dockerfile
-    container_name: client_service
-    ports:
-      - 4200:80
-    networks:
-      - basma-network
-    depends_on:
-      - apigetway
-# ORDERS SERVICE
-  ordersservice:
-    image: basma_orders_service:v1
-    build:
-      context: ./orders-service
-      dockerfile: Dockerfile
-    container_name: orders_service
-    ports:
-      - 3002:8080
-    networks:
-      - basma-network
-    depends_on:
-      - ordersdatabase
-# PRODUCTS SERVICE
-  productsservice:
-    image: basma_products_service:v1
-    build:
-      context: ./products-service
-      dockerfile: Dockerfile
-    container_name: products_service
-    ports:
-      - 3003:8080
-    networks:
-      - basma-network
-    depends_on:
-      - productsdatabase
-# USERS SERVICE
-  userseservice:
-    image: basma_users_service:v1
-    build:
-      context: ./users-service
-      dockerfile: Dockerfile
-    container_name: users_service
-    ports:
-      - 3004:8080
-    networks:
-      - basma-network
-    depends_on:
-      - usersdatabase
+#   apigetway:
+#     image: basma_api_gateway:v1
+#     build:
+#       context: ./api-gateway
+#       dockerfile: Dockerfile
+#     container_name: api_getway
+#     ports:
+#       - 3000:8080
+#     networks:
+#       - basma-network
+#     depends_on:
+#       - apigetwaydatabase
+#       - authservice
+#       - ordersservice
+#       - productsservice
+#       - userseservice     
+# # AUTHENTISATION SERVICE
+#   authservice:
+#     image: basma_auth_service:v1
+#     build:
+#       context: ./auth-service
+#       dockerfile: Dockerfile
+#     container_name: auth_service
+#     ports:
+#       - 3001:8080
+#     networks:
+#       - basma-network
+#     depends_on:
+#       - authdatabase
+# # FRONT SERVICE
+#   frontservice:
+#     image: basma_front_service:v1
+#     build:
+#       context: ./front-service
+#       dockerfile: Dockerfile
+#     container_name: client_service
+#     ports:
+#       - 4200:80
+#     networks:
+#       - basma-network
+#     depends_on:
+#       - apigetway
+# # ORDERS SERVICE
+#   ordersservice:
+#     image: basma_orders_service:v1
+#     build:
+#       context: ./orders-service
+#       dockerfile: Dockerfile
+#     container_name: orders_service
+#     ports:
+#       - 3002:8080
+#     networks:
+#       - basma-network
+#     depends_on:
+#       - ordersdatabase
+# # PRODUCTS SERVICE
+#   productsservice:
+#     image: basma_products_service:v1
+#     build:
+#       context: ./products-service
+#       dockerfile: Dockerfile
+#     container_name: products_service
+#     ports:
+#       - 3003:8080
+#     networks:
+#       - basma-network
+#     depends_on:
+#       - productsdatabase
+# # USERS SERVICE
+#   userseservice:
+#     image: basma_users_service:v1
+#     build:
+#       context: ./users-service
+#       dockerfile: Dockerfile
+#     container_name: users_service
+#     ports:
+#       - 3004:8080
+#     networks:
+#       - basma-network
+#     depends_on:
+#       - usersdatabase
 
 # Services Databases
   apigetwaydatabase:

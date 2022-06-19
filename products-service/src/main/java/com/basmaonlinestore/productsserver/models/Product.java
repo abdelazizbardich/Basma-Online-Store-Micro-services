@@ -8,8 +8,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "products")
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product", nullable = false)
     private Long idProduct;
     @Column(name = "title")
@@ -20,6 +19,7 @@ public class Product {
     private String description;
     @Column(name = "image")
     private String image;
+    @ManyToOne
     @JoinColumn(name = "id_category")
     private Category category;
     @Column(name = "created_at", updatable = false)

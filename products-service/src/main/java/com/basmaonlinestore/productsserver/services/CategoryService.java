@@ -17,7 +17,7 @@ public class CategoryService {
         this.categoryRepository=categoryRepository;
     }
 
-    public List<Categories> getAllCategories(){
+    public List<Category> getAllCategories(){
         try {
             return categoryRepository.findAll();
         }catch (Exception e){
@@ -26,7 +26,7 @@ public class CategoryService {
         }
     }
 
-    public Categories getOneCategory(Long id){
+    public Category getOneCategory(Long id){
         try {
             return categoryRepository.findById(id).get();
         }catch (Exception e){
@@ -35,18 +35,18 @@ public class CategoryService {
         }
     }
 
-    public Categories addCategory( Categories categories){
+    public Category addCategory( Category category){
         try {
-            return categoryRepository.save(categories);
+            return categoryRepository.save(category);
         }catch (Exception e){
             System.err.println(e);
             return null;
         }
     }
 
-    public Categories updateCategory(Categories categories){
+    public Category updateCategory(Category category){
         try {
-            return categoryRepository.save(categories);
+            return categoryRepository.save(category);
         }catch (Exception e){
             System.err.println(e);
             return null;

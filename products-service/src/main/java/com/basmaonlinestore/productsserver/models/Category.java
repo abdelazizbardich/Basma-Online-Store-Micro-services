@@ -1,6 +1,5 @@
 package com.basmaonlinestore.productsserver.models;
 
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -8,8 +7,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "categories")
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_category", nullable = false)
     private Long idCategory;
     @Column(name = "name")
